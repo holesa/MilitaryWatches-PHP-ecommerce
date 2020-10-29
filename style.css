@@ -1,0 +1,140 @@
+main {
+	width: 80%;
+	margin: 0 auto;
+}
+
+a {
+	color: #000;
+}
+
+a:hover {
+	color:#D25B00;
+}
+
+
+.card {
+	border: none;
+}
+
+/* Forms */
+
+input[type="submit"] {
+	background: #6FA4F8;
+	color: white;
+	padding: 5px 10px;
+	border-radius: 10px;
+	border: 0px;
+}
+
+input[type="submit"]:hover {
+	background: #2976f8;
+	color: #EEEEEE;
+	cursor: pointer;
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+	width: 250px;
+	border-radius: 5px;
+	border: 1px solid #aaaaaa;
+	padding: 0.3em;
+}
+
+input[type="submit"] {
+	padding: 10px 25px;
+	display: block;
+	margin: 0 auto;
+	margin-top: 20px;
+	font-weight: bold;
+}
+
+textarea {
+	border-radius: 5px;
+	border: 1px solid #aaaaaa;
+	width: 483px;
+	height: 90px;
+}
+
+
+/* Primary button */
+.button-primary {
+	background: #D25B00;
+	background-image: -webkit-linear-gradient(top, #D25B00, #D25B00);
+	background-image: -moz-linear-gradient(top, #D25B00, #D25B00);
+	background-image: -ms-linear-gradient(top, #D25B00, #D25B00);
+	background-image: -o-linear-gradient(top, #D25B00, #D25B00);
+	background-image: -webkit-gradient(to bottom, #D25B00, #D25B00);
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	color: #FFFFFF;
+	font-family: Open Sans;
+	font-size: 16px;
+	font-weight: 100;
+	padding: 5px;
+	width: 100%;
+	border: solid #D25B00 1px;
+	text-decoration: none;
+	display: inline-block;
+	cursor: pointer;
+	text-align: center;
+ }
+ 
+ .button-primary:hover {
+	background: #FF7002;
+	border: solid #FF7002 1px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	text-decoration: none;
+ }
+
+.navbar {
+	padding: 1.5rem;
+}
+
+.navbar-custom {
+	background-color: #2c3651;
+}
+
+.navbar-custom .navbar-text {
+	color: #FFFFFF;
+}
+
+.navbar-custom .navbar-nav .nav-link { 
+	color: #FFFFFF;
+}
+
+.circular-button {
+	position: relative;
+    right: 0;
+    top: -20px;
+    color: #2c3651;
+    background: #ffcb07;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    display: inline-block;
+    font-size: 11px;
+    height: 24px;
+    line-height: 24px;
+    width: 24px;
+    text-align: center;
+    -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.09);
+    -moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.09);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.09);
+}
+
+@media (min-width:700px){
+	.navbar, .navbar-nav{
+		padding-left:5rem;
+		padding-right:5rem;
+	  }
+
+	  main {
+		width: 70%;
+		margin: 0 auto;
+	}
+}
+
