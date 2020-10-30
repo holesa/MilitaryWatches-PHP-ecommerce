@@ -40,7 +40,11 @@
                             <div class="list-group-item">
                                 <span class="font-weight-bold">Total price: </span><span id="total-price-cart"><?=$totalPrice?></span> €
                             </div>
-                            <div class="list-group-item"><a href="/checkout" class="button-primary">PROCEED TO CHECKOUT</a></div>
+                            <?php if(!empty($products)): ?>
+                            <div class="list-group-item">
+                                <a href="/checkout" class="button-primary">PROCEED TO CHECKOUT</a>
+                            </div>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
