@@ -16,6 +16,10 @@ a:hover {
 	border: none;
 }
 
+.fa-check {
+	color:#1fb547;
+}
+
 
 /* Primary button */
 .button-primary {

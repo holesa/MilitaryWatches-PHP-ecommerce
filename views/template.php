@@ -21,12 +21,6 @@
                             <li class="nav-item active">
                                 <a class="nav-link" href="/">Products</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/contact">Contact</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" target="_blank" href="/session">Clear session</a>
-                            </li>
                         </ul>
                     </div>
                     <ul class="navbar-nav">
@@ -39,9 +33,7 @@
                     </ul>
             </nav>
         </header>
-        <br>
-        <br>
-        <main>
+        <main class="mt-5">
         <?=$this->controller->renderView()?>
         </main>
 

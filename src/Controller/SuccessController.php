@@ -1,12 +1,20 @@
 <?php
 class SuccessController extends Controller
 {
-
     public function process($url) {
+        if(!isset($_SESSION)) {
+            session_start();
+        }
+
         $this->header = array(
-            "title" => "",
-            "metaDescription" =>""
+            "title" => "Thank you!",
+            "metaDescription" =>"Your order was completed successfuly."
         );
+
+         // Invalid request
+         if(!isset($_POST["first-name"])) {
+            $this->redirect("");
+        }
 
         $checkout = new Checkout(array(
             "firstName"=> $_POST["first-name"],
@@ -21,12 +29,16 @@ class SuccessController extends Controller
         if(!$checkout->validateForm()) {
             $this->redirect("checkout");
         } else {
-        // Save data to database
-        // $checkout->saveToDB($_SESSION["products"],$_SESSION["totalPrice"],$_SESSION["totalQuantity"])    
-
+        // Save the order to the database
+            $orderId = $checkout->saveOrderToDb();
+        // Save the order details to the database
+            $orderDetails = $checkout->saveOrderDetailsToDb($_SESSION["products"], $orderId);
+        // Clear session
+            $_SESSION["totalQuantity"] = 0;
+            $_SESSION["totalPrice"] = 0;
+            $_SESSION["products"] = array();
 
             $this->view = "success";
-            
         }
         
     }

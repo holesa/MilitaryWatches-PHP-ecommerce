@@ -15,29 +15,41 @@ class Checkout {
         return true;    
     }
 
-    // public function saveToDB($products) {
-    //     foreach($products as $product) {
+    // Insert order into orders table
+    public function saveOrderToDb() {
+        $params = array(
+            $this->checkoutInfo["firstName"],
+            $this->checkoutInfo["lastName"],
+            $this->checkoutInfo["email"],
+            $this->checkoutInfo["address"],
+            $this->checkoutInfo["country"],
+            $this->checkoutInfo["postalCode"],
+            $this->checkoutInfo["payment"]
+        );
+
+        return Database::insertOrder("INSERT INTO orders (
+        first_name, last_name, email, address, country, postal_code, payment)
+        VALUES (?,?,?,?,?,?,?)", $params);  
+  }
+
+  // Insert order detail into order_details table
+    public function saveOrderDetailsToDb($products, $orderId) {
+        foreach($products as $product) {
+            $params = array(
+                $orderId,
+                $product["id"],
+                $product["product-quantity"]
+            );
             
+            Database::insertOrderDetail("INSERT INTO orders_details (
+                order_id, product_id, quantity, date)
+                VALUES (?,?,?,now())", $params);  
 
-    //         // Create order Details
-    //         $product["id"]
-    //         $product["product-quantity"]
-    //         order_id
-    //         status
+        }
 
+        // return Database::insertOrderDetail()
 
-    //         // Create order
-    //         $this->checkoutInfo["firstName"]
-    //         $this->checkoutInfo["lastName"]
-    //         $this->checkoutInfo["email"]
-    //         $this->checkoutInfo["address"]
-    //         $this->checkoutInfo["country"]
-    //         $this->checkoutInfo["postalCode"]
-    //         $this->checkoutInfo["payment"]
-            
-
-    //     }
-    // }
+    }
 
 
 }

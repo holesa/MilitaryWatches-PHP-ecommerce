@@ -49,4 +49,25 @@ class Database
 
     }
 
+
+     // Insert into orders table
+     public static function insertOrder($query, $params=array()) {
+        $result = self::$connect->prepare($query);
+        $result->execute($params);
+        $id = self::$connect->lastInsertId();
+        return $id;
+    } 
+
+
+    // Insert into order_detail table
+    public static function insertOrderDetail($query, $params=array()) {
+        $result = self::$connect->prepare($query);
+        $result->execute($params);
+        return $result->fetchAll();
+    }
+
+
+   
+
+
 }
