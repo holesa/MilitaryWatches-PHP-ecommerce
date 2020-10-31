@@ -5,10 +5,15 @@ class RouterController extends Controller
     protected $controller;
 
     public function process($input) {
+        if(!isset($_SESSION)) {
+            session_start();
+        };
+        // Get parsed URL 
         $parsedUrl = $this->parseUrl($input[0]);
         if(empty($parsedUrl[0])) {
             $this->controller = new HomepageController();
         } else {
+            // Initialize controller class based on URL
             $controllerClass = $this->toCamelCase(array_shift($parsedUrl)) . "Controller";
             if(file_exists("src/Controller/" . $controllerClass . ".php")){
             $this->controller = new $controllerClass;
@@ -16,14 +21,10 @@ class RouterController extends Controller
             $this->redirect("error");
             }
         }
-        
+        // Process nested controller
         $this->controller->process($parsedUrl);
         $this->data["title"] = $this->controller->header["title"];
         $this->data["metaDescription"] = $this->controller->header["metaDescription"];
-
-        if(!isset($_SESSION)) {
-            session_start();
-        };
 
         // Create session variables on the first loading
         if(!isset($_SESSION["totalQuantity"])) {
@@ -31,12 +32,9 @@ class RouterController extends Controller
             $_SESSION["totalPrice"] = 0;
             $_SESSION["products"] = array();
         }
-        // session_destroy();
-        
-
+ 
         // Load basic template
-        $this->view = "template";
-        
+        $this->view = "template";   
     }
 
     private function toCamelCase($text) {
@@ -46,7 +44,7 @@ class RouterController extends Controller
         $sentence = ucwords($camelCase);
         // Remove whitespaces
         $camelCase = str_replace(" ", "", $camelCase);
-
+        
         return $camelCase;
     }
 
@@ -61,9 +59,5 @@ class RouterController extends Controller
 
         return $dividedURL; 
     }
-
-
-
-
 
 }

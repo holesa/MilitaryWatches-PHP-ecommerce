@@ -1,19 +1,19 @@
 <?php
 class CheckoutController extends controller {
 
-    public function process($url) {
+    public function process($input) {
         if(!isset($_SESSION)) {
             session_start();
         }
 
-        // If the cart is empty redirect to homepage
+        // Redirect to the homepage if the cart is empty
         if(empty($_SESSION["products"])) {
             $this->redirect("");
         }
         
         $this->header = array(
-            "title" => "",
-            "metaDescription" =>""
+            "title" => "Checkout",
+            "metaDescription" => ""
         );
 
         // Create variables for template
@@ -22,8 +22,6 @@ class CheckoutController extends controller {
         $this->data["totalQuantity"] = $_SESSION["totalQuantity"];
         
         $this->view = "checkout";
-    
-       
     }
 
 }

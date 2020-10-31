@@ -15,7 +15,7 @@ class Checkout {
         return true;    
     }
 
-    // Insert order into orders table
+    // Insert new order into orders table
     public function saveOrderToDb() {
         $params = array(
             $this->checkoutInfo["firstName"],
@@ -27,7 +27,7 @@ class Checkout {
             $this->checkoutInfo["payment"]
         );
 
-        return Database::insertOrder("INSERT INTO orders (
+        return Database::insertAndReturnID("INSERT INTO orders (
         first_name, last_name, email, address, country, postal_code, payment)
         VALUES (?,?,?,?,?,?,?)", $params);  
   }
@@ -41,17 +41,12 @@ class Checkout {
                 $product["product-quantity"]
             );
             
-            Database::insertOrderDetail("INSERT INTO orders_details (
+            Database::insert("INSERT INTO orders_details (
                 order_id, product_id, quantity, date)
                 VALUES (?,?,?,now())", $params);  
 
         }
-
-        // return Database::insertOrderDetail()
-
     }
-
-
 }
 
 

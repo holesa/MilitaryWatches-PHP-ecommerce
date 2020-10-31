@@ -4,23 +4,26 @@
         <meta charset="UTF-8"/>
         <title><?= $title ?></title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="<?= $meta_description ?>"/>
+        <meta name="description" content="<?= $metaDescription ?>"/>
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
         <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <link rel="stylesheet" href="http://localhost/style.css" type="text/css"/>
+        <link rel="stylesheet" href="../public/css/style.css" type="text/css"/>
+        <link rel="icon" href="./public/images/favicon.ico">
     </head>
     <body>
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
-                    <a class="navbar-brand d-none d-md-block" href="/">MilitaryWatches</a>
+                    <a class="navbar-brand d-none d-md-block" href="/">
+                        <img src="../public/images/logo.png">
+                    </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active">
+                            <!-- <li class="nav-item active">
                                 <a class="nav-link" href="/">Products</a>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                     <ul class="navbar-nav">

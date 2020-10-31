@@ -1,11 +1,12 @@
 // Add the item to shopping cart
+const cartUrl = document.location.origin + "/cart";
 $("#add-to-cart-form").submit(function(e){
     e.preventDefault();
     const quantity = parseInt($("#form-product-quantity").val(),10);
     const maxQuantity = parseInt($("#form-product-quantity").attr("max"),10);
     if(quantity>maxQuantity) return false;
     $.ajax({
-        url:"http://localhost/cart",
+        url:cartUrl,
         type:"POST",
         data:{productData : $("#add-to-cart-form").serialize()},
         success:function() {
@@ -27,7 +28,7 @@ $(".remove-item").click(function(e){
     const oldQuantity = current.attr("data-item-quantity");
     const oldPrice = parseInt(current.attr("data-item-price"),10) * parseInt(oldQuantity,10);
     $.ajax({
-        url:"http://localhost/cart",
+        url:cartUrl,
         type:"POST",
         data:{removeItemId:id}, 
         success:function(){
@@ -55,7 +56,7 @@ $(".remove-item").click(function(e){
         const oldPrice = parseInt(current.attr("data-item-price"),10) * parseInt(oldQuantity,10);
         const newPrice = parseInt(current.attr("data-item-price"),10) * parseInt(newQuantity,10);   
         $.ajax({
-            url:"http://localhost/cart",
+            url:cartUrl,
             type:"POST",
             data:{changeQuantityId:id, newQuantity:newQuantity, maxQuantity:maxQuantity}, 
             success:function(){

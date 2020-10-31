@@ -35,23 +35,8 @@ class Database
 
 }
 
-    // Return first value
-    public static function querySingleValue($query, $params=array()) {
-        $result = self::querySingle($query, $params);
-        return $result[0];
-    }
-
-    // Return a number of modified row
-    public static function queryAllNumber($query, $params=array()) {
-        $result = self::$connect->prepare($query);
-        $result->execute($params);
-        return $result>rowCount();
-
-    }
-
-
-     // Insert into orders table
-     public static function insertOrder($query, $params=array()) {
+     // Insert one row and return id
+     public static function insertAndReturnID($query, $params=array()) {
         $result = self::$connect->prepare($query);
         $result->execute($params);
         $id = self::$connect->lastInsertId();
@@ -59,11 +44,11 @@ class Database
     } 
 
 
-    // Insert into order_detail table
-    public static function insertOrderDetail($query, $params=array()) {
+    // Insert one row
+    public static function insert($query, $params=array()) {
         $result = self::$connect->prepare($query);
         $result->execute($params);
-        return $result->fetchAll();
+        return null;
     }
 
 

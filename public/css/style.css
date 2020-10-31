@@ -11,7 +11,6 @@ a:hover {
 	color:#D25B00;
 }
 
-
 .card {
 	border: none;
 }
@@ -21,7 +20,7 @@ a:hover {
 }
 
 
-/* Primary button */
+/* Primary button START */
 .button-primary {
 	background: #D25B00;
 	background-image: -webkit-linear-gradient(top, #D25B00, #D25B00);
@@ -53,6 +52,9 @@ a:hover {
 	border-radius: 4px;
 	text-decoration: none;
  }
+
+ 
+/* Primary button END */
 
 .navbar {
 	padding: 1.5rem;

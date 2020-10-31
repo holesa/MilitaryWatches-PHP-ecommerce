@@ -1,12 +1,12 @@
 <?php
 class CartController extends Controller 
 {
-    public function process($params) {
+    public function process($input) {
         $cart = new Cart();
         if(!isset($_SESSION)) {
             session_start();
         }
-        // If the form has been submitted
+         // If the form has been submitted
          if(isset($_POST["productData"])) {
             // Add item to the session
             $cart->addItem($_POST["productData"]);

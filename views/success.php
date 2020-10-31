@@ -4,5 +4,3 @@
     <p class="lead">Your order was completed successfuly. </p>
 </div>
 
-
-

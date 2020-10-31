@@ -1,13 +1,13 @@
 <?php
 class HomepageController extends Controller {
     
-    public function process($url){
-        $returnProducts = new ReturnProducts();
+    public function process($input){
+        $returnProducts = new Products();
         $products = $returnProducts->returnProducts();
         $this->data["products"] = $products;
         $this->header = array(
-            "title" => "This is homepage",
-            "metaDescription" => "Welcome here!"
+            "title" => "MilitaryWatches",
+            "metaDescription" => "Choose from a new collection of military watches at militarywatches.site"
         );
         $this->view = "homepage";
     }

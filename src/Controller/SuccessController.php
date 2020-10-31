@@ -1,14 +1,14 @@
 <?php
 class SuccessController extends Controller
 {
-    public function process($url) {
+    public function process($input) {
         if(!isset($_SESSION)) {
             session_start();
         }
 
         $this->header = array(
             "title" => "Thank you!",
-            "metaDescription" =>"Your order was completed successfuly."
+            "metaDescription" => "Your order was completed successfuly."
         );
 
          // Invalid request
@@ -40,7 +40,6 @@ class SuccessController extends Controller
 
             $this->view = "success";
         }
-        
     }
 
 

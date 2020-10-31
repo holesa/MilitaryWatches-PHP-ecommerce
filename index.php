@@ -15,5 +15,7 @@ spl_autoload_register("autoloader");
 Database::connectToDB("127.0.0.1", "root", "", "phpshop");
 
 $router = new RouterController();
+// Process selected controller
 $router->process(array($_SERVER["REQUEST_URI"]));
+// Choose appropriate template file
 $router->renderView();

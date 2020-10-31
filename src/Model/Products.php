@@ -1,5 +1,5 @@
 <?php
-class ReturnProducts 
+class Products 
 {
 
     public function returnProduct($url) {
