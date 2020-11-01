@@ -39,13 +39,13 @@ class RouterController extends Controller
 
     private function toCamelCase($text) {
         // Replace dashes by whitespaces
-        $camelCase = str_replace("-", " ", $text);
+        $sentence = str_replace("-", " ", $text);
         // Uppercase first letters
-        $sentence = ucwords($camelCase);
+        $sentence = ucwords($sentence);
         // Remove whitespaces
-        $camelCase = str_replace(" ", "", $camelCase);
+        $sentence = str_replace(" ", "", $sentence);
         
-        return $camelCase;
+        return $sentence;
     }
 
     private function parseUrl($url) {
