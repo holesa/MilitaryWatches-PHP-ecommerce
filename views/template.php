@@ -21,9 +21,9 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav mr-auto">
-                            <!-- <li class="nav-item active">
+                            <li class="nav-item active">
                                 <a class="nav-link" href="/">Products</a>
-                            </li> -->
+                            </li>
                         </ul>
                     </div>
                     <ul class="navbar-nav">
